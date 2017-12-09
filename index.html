@@ -28,7 +28,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">John's</a>
+                <a class="dropdown-item" href="#">Home</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
@@ -58,7 +58,7 @@
                 <tbody class="table-striped">
                   <tr ng-repeat="rate in rates">
                     <td>{{rate.code}}</td>
-                    <td>{{rate.exchange rate}}</td>
+                    <td>{{rate.rate}}</td>
                     <td>{{rate.description}}</td>
                   </tr>
                 </tbody>
@@ -92,7 +92,7 @@
 
     <div>
         <form ng-submit="calculateUnits()">
-          Pay Amount : <input type="number" ng-model="amount" placeholder="Enter amount">
+          Amount to Pay : <input type="number" ng-model="amount" placeholder="Enter amount">
           <select ng-model="currency">
             <option value="NGN">NGN</option>
             <option value="USD">USD</option>
