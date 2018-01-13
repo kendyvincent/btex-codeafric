@@ -23,6 +23,8 @@ coinApp.controller('mainController', function($scope, $http) {
       {code: 'INR',  name: 'Indian Rupee'},
       {code: 'KPR',  name: 'North Korean Won'},
       {code: 'JPY',  name: 'Japanese Yen'},
+      {code: 'GHS',  name: 'Ghanaian Cedi'},
+      {code: 'SEK',  name: 'Swedish Krona'},
       {code: 'RUB',  name: 'Russian Ruble'}
   ];
 
