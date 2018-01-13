@@ -10,7 +10,7 @@ coinApp.controller('mainController', function($scope, $http) {
     $scope.total_currency_amount = 0.0;
     $scope.total_usd_units = 0.0;
     $scope.total_currency_units = 0.0;
-   
+
     $scope.currency_to_convert_to =  {code: 'NGN',  name: 'Nigerian Naira'};
 
     $scope.currenciesWithNames = [
@@ -18,11 +18,16 @@ coinApp.controller('mainController', function($scope, $http) {
       {code: 'GBP', name: 'British Pound'},
       {code: 'NGN',  name: 'Nigerian Naira'},
       {code: 'CNY',  name: 'Chinese Yuan'},
-      {code: 'CAD',  name: 'Canadian Dollars'}
+      {code: 'CAD',  name: 'Canadian Dollars'},
+      {code: 'USD',  name: 'US Dollars'},
+      {code: 'INR',  name: 'Indian Rupee'},
+      {code: 'KPR',  name: 'North Korean Won'},
+      {code: 'JPY',  name: 'Japanese Yen'},
+      {code: 'RUB',  name: 'Russian Ruble'}
   ];
-  
+
     $scope.getPrice = function() {
-      console.log("Trying to get price");   
+      console.log("Trying to get price");
       $http({
         method: 'GET',
         url: 'https://api.coindesk.com/v1/bpi/currentprice/' + $scope.currency_to_convert_to.code + '.json'
@@ -42,20 +47,20 @@ coinApp.controller('mainController', function($scope, $http) {
     }
       $scope.calculateTotal = function() {
         console.log($scope.rates);
-        
+
       angular.forEach($scope.rates, function(bt_rate) {
        var total = bt_rate.rate_float * $scope.units;
-        
+
         if (bt_rate.code == "USD") {
           $scope.total_currency_amount = 0.00;
-          $scope.total_usd_amount = total;      
+          $scope.total_usd_amount = total;
         } else {
             $scope.total_currency_amount = total;
-            $scope.total_usd_amount = 0.00; 
+            $scope.total_usd_amount = 0.00;
         }
       });
     };
-   
+
     $scope.calculateUnits = function() {
       angular.forEach($scope.rates, function(bt_rate) {
         if (bt_rate.code == $scope.currency_to_convert_to.code) {
